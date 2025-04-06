@@ -1,0 +1,6 @@
+GTA_BASE_PATH=
+RAGE_MP_PATH=
+
+
+
+
