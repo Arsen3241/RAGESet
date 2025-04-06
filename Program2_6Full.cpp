@@ -1,4 +1,4 @@
-//ver 2.6.06-04-2025
+//ver 2.6.07-04-2025
 #ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x0500
 #endif
@@ -18,6 +18,7 @@ std::string gtaBasePath = "";
 
 std::string rageMpPath = "";
 
+HBITMAP hBitmap = NULL;
 
 std::string GetConfigFilePath() {
     char appPath[MAX_PATH];
@@ -545,7 +546,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
         SetWindowLongA(hConsole, GWL_EXSTYLE, GetWindowLongA(hConsole, GWL_EXSTYLE) | WS_EX_CLIENTEDGE);
 
 
-        AddConsoleText("=== Character Model Editor ===");
+        AddConsoleText("=== GTA5RP Editor ===");
         AddConsoleText("Application started successfully");
         AddConsoleText("");
         AddConsoleText("Instructions:");
@@ -765,7 +766,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
         SetTextColor(hdc, APP_TITLE_COLOR);
         SetBkMode(hdc, TRANSPARENT);
         HFONT oldFont = (HFONT)SelectObject(hdc, hTitleFont);
-        DrawTextA(hdc, "Character Model - Editor", -1, &headerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+        DrawTextA(hdc, "GTA5RP - Editor", -1, &headerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 
 
         RECT consoleHeader = {230, 80, 630, 105};
@@ -886,7 +887,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int) {
     RegisterClassEx(&wc);
 
 
-    HWND hwnd = CreateWindowExA(0, "MyAppClass", "Character Model",
+    HWND hwnd = CreateWindowExA(0, "MyAppClass", "RAGESet",
         WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 650, 500,
         NULL, NULL, hInst, NULL);
 
